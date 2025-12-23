@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.3 (RELEASE-2.4.3-ad3323c; 2019-01-21T17:46:06+0000) JAXWS-RI/2.3.2 JAXWS-API/2.3.2 JAXB-RI/2.3.2 JAXB-API/2.3.2 git-revision#unknown. --><xs:schema xmlns:tns="http://oggetti/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://oggetti/">
+
+<xs:element name="aggiornaOggetto" type="tns:aggiornaOggetto"/>
+
+<xs:element name="aggiornaOggettoResponse" type="tns:aggiornaOggettoResponse"/>
+
+<xs:element name="creaOggetto" type="tns:creaOggetto"/>
+
+<xs:element name="creaOggettoResponse" type="tns:creaOggettoResponse"/>
+
+<xs:element name="eliminaOggetto" type="tns:eliminaOggetto"/>
+
+<xs:element name="eliminaOggettoResponse" type="tns:eliminaOggettoResponse"/>
+
+<xs:element name="findByCategoria" type="tns:findByCategoria"/>
+
+<xs:element name="findByCategoriaResponse" type="tns:findByCategoriaResponse"/>
+
+<xs:element name="findByID" type="tns:findByID"/>
+
+<xs:element name="findByIDResponse" type="tns:findByIDResponse"/>
+
+<xs:element name="findByLuogo" type="tns:findByLuogo"/>
+
+<xs:element name="findByLuogoResponse" type="tns:findByLuogoResponse"/>
+
+<xs:element name="getAll" type="tns:getAll"/>
+
+<xs:element name="getAllResponse" type="tns:getAllResponse"/>
+
+<xs:element name="oggettoSmarrito" type="tns:oggettoSmarrito"/>
+
+<xs:element name="totNonRestituitiByCategoria" type="tns:totNonRestituitiByCategoria"/>
+
+<xs:element name="totNonRestituitiByCategoriaResponse" type="tns:totNonRestituitiByCategoriaResponse"/>
+
+<xs:complexType name="aggiornaOggetto">
+<xs:sequence>
+<xs:element name="arg0" type="tns:oggettoSmarrito" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="oggettoSmarrito">
+<xs:sequence>
+<xs:element name="categoria" type="xs:string" minOccurs="0"/>
+<xs:element name="data" type="xs:string" minOccurs="0"/>
+<xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+<xs:element name="ID" type="xs:int"/>
+<xs:element name="luogo" type="xs:string" minOccurs="0"/>
+<xs:element name="restituito" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="aggiornaOggettoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:oggettoSmarrito" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminaOggetto">
+<xs:sequence>
+<xs:element name="arg0" type="tns:oggettoSmarrito" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminaOggettoResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="creaOggetto">
+<xs:sequence>
+<xs:element name="arg0" type="tns:oggettoSmarrito" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="creaOggettoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:oggettoSmarrito" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findByLuogo">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findByLuogoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:oggettoSmarrito" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="totNonRestituitiByCategoria">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="totNonRestituitiByCategoriaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findByCategoria">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findByCategoriaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:oggettoSmarrito" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findByID">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findByIDResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:oggettoSmarrito" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAll">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAllResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:oggettoSmarrito" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
