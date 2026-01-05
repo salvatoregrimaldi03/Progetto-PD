@@ -7,23 +7,25 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@Entity
-@NamedQueries({
+@Entity //Rende persistente sul DB l'oggetto OggettoSmarrito (definisce l'entità OggettoSmarrito)
+@NamedQueries({ //query statiche
     @NamedQuery(name = "findByID", query = "SELECT os FROM OggettoSmarrito os WHERE os.ID = :ID"),
     @NamedQuery(name = "findByCategoria", query = "SELECT os FROM OggettoSmarrito os WHERE os.categoria = :categoria"),
     @NamedQuery(name = "findByLuogo", query = "SELECT os FROM OggettoSmarrito os WHERE os.luogo = :luogo"),
     @NamedQuery(name = "getAll", query = "SELECT os FROM OggettoSmarrito os")
 })
-@XmlRootElement
-public class OggettoSmarrito implements Serializable {
-    @Id
-    private int ID;
-    private String descrizione;
-    private String categoria;
-    private String luogo;
-    private String data;
-    private boolean restituito;
-    
+@XmlRootElement //in Java Architecture for XML Binding (JAXB) serve a indicare che questa classe è l'elemento radice di un documento XML
+                //in modo da convertire la classe Java nella sua rappresentazione XML (marshalling)
+public class OggettoSmarrito implements Serializable { //Serializable per passare la classe come un valore
+    @Id //Indica che la variabile ID sarà la primary key dell'entità OggettoSmarrito
+    private int ID;                    //identificativo oggetto smarrito
+    private String descrizione;        //descrizione dell'oggetto smarrito
+    private String categoria;          //categoria dell'oggetto smarrito
+    private String luogo;              //luogo di ritrovamento dell'oggetto smarrito
+    private String data;               //data di ritrovamento
+    private boolean restituito;        //variabile booleana (true/false) che indica se un oggetto x è stato restituito o meno
+
+    //Costruttore senza argomenti (utile al container per istanziare l'oggetto OggettoSmarrito)
     public OggettoSmarrito() {
         
     }
@@ -37,6 +39,7 @@ public class OggettoSmarrito implements Serializable {
         this.restituito = restituito;
     }
 
+    //Metodi Getter & Setter
     public int getID() {
         return ID;
     }
@@ -85,9 +88,22 @@ public class OggettoSmarrito implements Serializable {
         this.restituito = restituito;
     }
 
+    //Sovrascrittura del metodo toString()
     @Override
-    public String toString()
-    {
-        return "OggettoSmarrito{" + "ID=" + ID + ", descrizione=" + descrizione + ", categoria=" + categoria + ", luogo=" + luogo + ", data=" + data + ", restituito=" + restituito + '}';
+    public String toString() {
+        return getClass().getName() +"[ID: " +ID+ ", descrizione: " +descrizione+ ", categoria: " +categoria+ ", luogo di ritrovamento: " +luogo+ ", data di ritrovamento: " +data+ ", restituito: " +restituito+ "]"; 
+    }
+
+    //Sovrascrittura del metodo equals() per confrontare due oggetti di tipo OggettoSmarrito
+    @Override
+    public boolean equals(Object o) {
+        if(o == null)
+            return false;
+
+        if(getClass() != o.getClass())
+            return false;
+
+        OggettoSmarrito os = (OggettoSmarrito) o;
+        return ID == os.ID && descrizione.equals(os.descrizione) && categoria.equals(os.categoria) && luogo.equals(os.luogo) && data.equals(os.data) && restituito == os.restituito;
     }
 }
