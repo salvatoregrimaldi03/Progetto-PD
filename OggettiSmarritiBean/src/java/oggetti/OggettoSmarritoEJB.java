@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 @WebService
-@Stateless
+@Stateless  //bean stateless: non mantiene uno stato conversazionale tra due chiamate. Ogni invocazione è indipendente: i dati di una richiesta non devono essere mantenuti/utilizzati per la successiva
 @LocalBean
 public class OggettoSmarritoEJB implements OggettiSmarritiEJBRemote {
     @Inject
@@ -65,4 +65,5 @@ public class OggettoSmarritoEJB implements OggettiSmarritiEJBRemote {
         q.setParameter("categoria", categoria); //Aggiunto il metodo setParameter per impostare il valore del parametro categoria
         return q.getSingleResult(); //Modifica del valore di ritorno
     }
+
 }
