@@ -22,7 +22,7 @@ This project is an enterprise application developed in JavaEE 8.
    git clone https://github.com/salvatoregrimaldi03/Progetto-PD.git
    ```
 2. Open the project in Apache Nebeans 27
-3. Configure the Application Server (i.e., Services > Servers > Add Server -> Choose GlassFishServer
+3. Configure the Application Server (i.e., Services > Servers > Add Server -> Choose GlassFishServer)
 4. Add libraries in any project (Bean, EJB Client, JMS Client, WS Client), specifically:
    - Bean Project: javaee-api-8.0.jar
    - EJB Client Project: gf-client.jar, javaee-api-8.0.jar, derby.jar, derbyclient.jar
